@@ -33,29 +33,26 @@
   </head>
   
 
-<?= service('validation')->listErrors() ?>
+  <?= service('validation')->listErrors() ?>
 
 <main class="form-signin container text-center" style="display: flex !important; justify-content: center !important;">
-<form action="/profili/create" method="post">
+<form action="/profili/create" method="post" enctype="multipart/form-data">
 <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Crea Profilo</h1>
 
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <!-- <input type="input" class="form-control" name="userid" required> -->
-	      <?php
+    <?php
           if ($_SESSION['logged_in']) {
               echo "<input type=\"text\" readonly class=\"form-control\" name=\"userid\" value= \"".esc($_SESSION['userid'])."\" required>";
               }?>
-      <label for="userid">User ID</label>
+              
+      <label for="userid">UserID</label>
     </div>
+
     <select name="identificationid" for="identificationid" class="form-select form-select-sm" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;" aria-label=".form-select-sm example">
     <option selected>Documento</option>
     <option name="identificationid" for="identificationid" value="patente">Patente</option>
     <option name="identificationid" for="identificationid" value="carta_identità">Carta d'identità</option></select>
-<!--<div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control" name="identificationid" required>
-      <label for="identificationid">Patente/carta_identità</label>
-    </div>-->
 <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
       <input type="input" class="form-control" name="id_num" required>
       <label for="id_num">Id_num</label>
@@ -84,6 +81,11 @@
       <input type="input" class="form-control" name="phone_number" >
       <label for="phone_number">Numero telefonico</label>
     </div>
+    <div class="input-group mb-3">
+      <input type="file" class="form-control" name="image" id="image">
+      <label class="input-group-text" for="image">Carica la tua foto profilo</label>
+    </div>
+
     <button class="w-100 btn btn-lg btn-primary" type="submit" style="width: 300px !important; margin-bottom: 20px !important;">Crea Profilo</button>
     
 </form>

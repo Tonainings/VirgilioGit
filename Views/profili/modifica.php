@@ -33,65 +33,74 @@
   </head>
   
 
-<?= service('validation')->listErrors() ?>
+  <?= service('validation')->listErrors() ?>
 
 <main class="form-signin container text-center" style="display: flex !important; justify-content: center !important;">
 <form action="/profili/modify" method="post">
 <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Modifica Profilo</h1>
 
-   <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
+    <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
     <?php
           if ($_SESSION['logged_in']) {
               echo "<input type=\"text\" readonly class=\"form-control\" name=\"userid\" value= \"".esc($_SESSION['userid'])."\" required>";
               }?>
-
-    <label for="userid">UserID</label>
+              
+      <label for="userid">UserID</label>
     </div>
-    
     <select name="identificationid" for="identificationid" class="form-select form-select-sm" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;" aria-label=".form-select-sm example">
-    <option selected>Dcumento</option>  
-    <option name="identificationid" for="identificationid" value= "patente">Patente</option>
-    <option name="identificationid" for="identificationid" value= "carta_identità">Carta di identità</option></select>
+    <option selected>Documento</option>
+    <option name="identificationid" for="identificationid" value="patente">Patente</option>
+    <option name="identificationid" for="identificationid" value="carta_identità">Carta d'identità</option></select>
 
-  <!--<div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control" name="identificationid" required>
-      <label for="identificationid">Patente/carta_identità</label>
-    </div>-->
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-
+    <?php  if ($_SESSION['logged_in']) {  
+    echo "<input type=\"input\" class=\"form-control\" name=\"id_num\" value= \"".esc($profilo['id_num'])."\" required>";
+    }
+       ?>
       <label for="id_num">Id_num</label>
     </div>
-
-    <!--<div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control"  name="id_num" value= "" required>
-      <label for="id_num">Numero documento di riconoscimento</label>
-    </div>-->
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control"  name="name" value= "" required>
-      <label for="name">Nome</label>
-    </div>
+      
+    <?php if ($_SESSION['logged_in']) {  
+    echo "<input type=\"input\" class=\"form-control\" name=\"name\" value= \"".esc($profilo['name'])."\" required>";
+    }?>
+     
+    <label for="name">Nome</label>
+          
+      </div>
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control" name="last_name" value= "" required>
+    <?php if ($_SESSION['logged_in']) {  
+    echo "<input type=\"input\" class=\"form-control\" name=\"last_name\" value= \"".esc($profilo['last_name'])."\" required>";
+    }?>
       <label for="last_name">Cognome</label>
     </div>
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control"  name="city" value= "" required>
+    <?php if ($_SESSION['logged_in']) {  
+    echo "<input type=\"input\" class=\"form-control\" name=\"city\" value= \"".esc($profilo['city'])."\" required>";
+    }?>
       <label for="city">Città</label>
     </div>
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control" name="region" value= "" required>
+    <?php if ($_SESSION['logged_in']) {  
+    echo "<input type=\"input\" class=\"form-control\" name=\"region\" value= \"".esc($profilo['region'])."\" required>";
+    }?>
       <label for="region">Regione</label>
     </div>
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-    <textarea type="text" class="form-control" name="bio" value= "" cols="45" rows="4"></textarea>
+    <?php if ($_SESSION['logged_in']) {  
+    echo "<textarea type=\"text\" class=\"form-control\" name=\"bio\" cols=\"45\" rows=\"4\">".esc($profilo['bio'])."</textarea>";
+    }?>
       <label for="bio">Bio</label>
     </div>
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      <input type="input" class="form-control" name="phone_number" value= "" >
+    <?php if ($_SESSION['logged_in']) {  
+    echo "<input type=\"input\" class=\"form-control\" name=\"phone_number\" value= \"".esc($profilo['phone_number'])."\" required>";
+    }?>
       <label for="phone_number">Numero telefonico</label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width: 300px !important; margin-bottom: 20px !important;">Aggiorna Profilo</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width: 300px !important; margin-bottom: 20px !important;">Aggiorna Profilo </button>
+    
     
 </form>
 </main>

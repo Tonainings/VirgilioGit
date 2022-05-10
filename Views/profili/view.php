@@ -35,15 +35,17 @@
 <?php
 if ($_SESSION['logged_in']) {
 echo " <h2>".esc($title)."</h2>";
+echo "<img src='" . $profilo['image'] . "'  class=\"img-fluid\" />";
 echo " <h2>".esc($_SESSION['userid'])."</h2>";
 echo " <p>".esc($profilo['name'])."</p>";
 }
 ?>
 <form class="d-flex">
-        
-        <button type="button" class="btn btn-primary" onclick="document.location.href='/index.php/profili/create'">Crea profilo 
-</button> <!--collegamenti onclick-->
-<button type="button" class="btn btn-primary" onclick="document.location.href='/index.php/profili/modify'">Modifica profilo 
-</button>
-        
-      </form>
+        <?php
+                  if ($userid=$profilo['userid']) {
+                   echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/profili/modify/".esc($_SESSION['userid'])."'\">Modifica profilo</button>";
+                   } else {
+                    echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/profili/create'\">Crea profilo</button>";
+                    }
+                  ?>
+        </form>
