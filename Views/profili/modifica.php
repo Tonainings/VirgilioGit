@@ -36,7 +36,7 @@
   <?= service('validation')->listErrors() ?>
 
 <main class="form-signin container text-center" style="display: flex !important; justify-content: center !important;">
-<form action="/profili/modify" method="post">
+<form action="/profili/modify" method="post" enctype="multipart/form-data">
 <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Modifica Profilo</h1>
 

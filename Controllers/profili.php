@@ -107,12 +107,15 @@ class profili extends BaseController {
         'phone_number'  => $this->request->getPost('phone_number'),
         'image'  => $this->request->getPost('image')
         ];
-		        $path = FCPATH . '/uploads';
+
+        $path = FCPATH . '/uploads';
 
         $image = $this->request->getFile('image');
         $image->move($path);
-        $data['image'] = '/uploads/' . $_FILES['image']['name'];    
-        
+        $data['image'] = '/uploads/' . $_FILES['image']['name'];
+
+
+		
     	$model->modifyProfilo($data);
         // $model->save($data);
         $data['title'] = ucfirst($data['profilo']['name']). ' '. ucfirst($data['profilo']['last_name']);
