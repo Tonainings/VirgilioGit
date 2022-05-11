@@ -99,6 +99,10 @@
     }?>
       <label for="phone_number">Numero telefonico</label>
     </div>
+    <div class="input-group mb-3">
+      <input type="file" class="form-control" name="image" id="image">
+      <label class="input-group-text" for="image">Carica la tua foto profilo</label>
+    </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit" style="width: 300px !important; margin-bottom: 20px !important;">Aggiorna Profilo </button>
     
     
