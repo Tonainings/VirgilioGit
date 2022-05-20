@@ -28,6 +28,7 @@ class ProfiloModel extends Model
           return $query->getRowArray();
           
   } 
+  
 
 
   public function setProfilo($data)
@@ -39,7 +40,7 @@ class ProfiloModel extends Model
 
   public function modifyProfilo($data)
   {
-    $sql = "UPDATE profilo SET  userid ='$data[userid]', identificationid ='$data[identificationid]', id_num ='$data[id_num]', image ='$data[image]', name = '$data[name]', last_name ='$data[last_name]', city ='$data[city]', region ='$data[region]', bio ='$data[bio]', phone_number ='$data[phone_number]' WHERE userid='$data[userid]';";
+    $sql = "UPDATE profilo SET userid ='$data[userid]', identificationid ='$data[identificationid]', id_num ='$data[id_num]', image ='$data[image]', name = '$data[name]', last_name ='$data[last_name]', city ='$data[city]', region ='$data[region]', bio ='$data[bio]', phone_number ='$data[phone_number]' WHERE userid='$data[userid]';";
     $query =  $this->query($sql);
     return $query;
   }

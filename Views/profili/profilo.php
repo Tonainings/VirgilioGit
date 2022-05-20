@@ -31,7 +31,7 @@
 </html>
 <form class="d-flex">
         
-        <button type="button" class="btn btn-primary" onclick="document.location.href='create'">Crea profilo 
+        <button type="button" class="btn btn-primary" onclick="document.location.href='create'">C profilo 
 </button> <!--collegamenti onclick-->
 
         
