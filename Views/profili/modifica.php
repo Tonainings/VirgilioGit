@@ -54,8 +54,8 @@
 
 
 <!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-    
     <h1 class="h3 mb-3 fw-normal">Modifica Profilo</h1>
+
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
     <?php
           if ($_SESSION['logged_in']) {

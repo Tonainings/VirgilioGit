@@ -55,7 +55,7 @@ echo view('templates/footer', $data);
              $this->session->set($userdata);
       
                 echo view('templates/header', ['title' => 'Login']);
-                echo view('profili/myvirgilio');
+                echo view('pages/myvirgilio');
                 echo view('templates/footer');
                
             } else {
