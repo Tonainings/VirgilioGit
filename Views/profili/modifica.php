@@ -48,20 +48,30 @@
               
       <label for="userid">UserID</label>
     </div>
-    <select name="identificationid" for="identificationid" class="form-select form-select-sm" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;" aria-label=".form-select-sm example">
+    
+    <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
+    <?php
+          if ($_SESSION['logged_in']) {
+              echo "<input type=\"text\" readonly class=\"form-control\" name=\"identificationid\" value= \"".esc($profilo['identificationid'])."\" required>";
+              }?>
+              
+      <label for="userid">Documento</label>
+    </div>
+
+   <!-- <select name="identificationid" for="identificationid" class="form-select form-select-sm" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;" aria-label=".form-select-sm example">
     <option selected>Documento</option>
     <option name="identificationid" for="identificationid" value="patente">Patente</option>
-    <option name="identificationid" for="identificationid" value="carta_identità">Carta d'identità</option></select>
+    <option name="identificationid" for="identificationid" value="carta_identità">Carta d'identità</option></select>  -->
 
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
     <?php  if ($_SESSION['logged_in']) {  
-    echo "<input type=\"input\" class=\"form-control\" name=\"id_num\" value= \"".esc($profilo['id_num'])."\" required>";
+    echo "<input type=\"text\" readonly class=\"form-control\" name=\"id_num\" value= \"".esc($profilo['id_num'])."\" required>";
     }
        ?>
       <label for="id_num">Id_num</label>
     </div>
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
-      
+       
     <?php if ($_SESSION['logged_in']) {  
     echo "<input type=\"input\" class=\"form-control\" name=\"name\" value= \"".esc($profilo['name'])."\" required>";
     }?>
