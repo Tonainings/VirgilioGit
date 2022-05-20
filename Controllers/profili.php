@@ -41,10 +41,10 @@ class profili extends BaseController {
      $model = new ProfiloModel();
 
      if ($this->request->getMethod() === 'post' && $this->validate([
-	  'userid' => 'required',
+      'userid' => 'required',
       'identificationid'  => 'required',
       'id_num' => 'required',
-	  'name'  => 'required',
+      'name'  => 'required',
       'last_name'  => 'required',
       'city'  =>'required',
       'region'  => 'required' 
@@ -54,14 +54,21 @@ class profili extends BaseController {
         'userid' => $this->request->getPost('userid'),
         'identificationid'  => $this->request->getPost('identificationid'),
         'id_num'  => $this->request->getPost('id_num'),
-		'name'  => $this->request->getPost('name'),
+        'name'  => $this->request->getPost('name'),
         'last_name'  => $this->request->getPost('last_name'),
         'city'  => $this->request->getPost('city'),
         'region'  => $this->request->getPost('region'),
         'bio'  => $this->request->getPost('bio'),
-        'phone_number'  => $this->request->getPost('phone_number')
+        'phone_number'  => $this->request->getPost('phone_number'),
+        //'image'  => $this->request->getPost('image'),
+        //'imageFile' => $this->request->getFile('image')
         ];
-		
+
+        $path = FCPATH . '/uploads';
+
+        $image = $this->request->getFile('image');
+        $image->move($path);
+        $data['image'] = '/uploads/' . $_FILES['image']['name'];		
     	$model->setProfilo($data);
         // $model->save($data);
         echo view('profili/success');
@@ -72,16 +79,17 @@ class profili extends BaseController {
       }
     } 
 
-    public function modify()
+    public function modify($userid = null)
     {
      $model = new ProfiloModel();
+     $data['profilo'] = $model->getProfilo($userid);
      
 
      if ($this->request->getMethod() === 'post' && $this->validate([
-	  'userid' => 'required',
+      'userid' => 'required',
       'identificationid'  => 'required',
       'id_num' => 'required',
-	  'name'  => 'required',
+      'name'  => 'required',
       'last_name'  => 'required',
       'city'  =>'required',
       'region'  => 'required' 
@@ -91,13 +99,22 @@ class profili extends BaseController {
         'userid' => $this->request->getPost('userid'),
         'identificationid'  => $this->request->getPost('identificationid'),
         'id_num'  => $this->request->getPost('id_num'),
-		'name'  => $this->request->getPost('name'),
+        'name'  => $this->request->getPost('name'),
         'last_name'  => $this->request->getPost('last_name'),
         'city'  => $this->request->getPost('city'),
         'region'  => $this->request->getPost('region'),
         'bio'  => $this->request->getPost('bio'),
-        'phone_number'  => $this->request->getPost('phone_number')
+        'phone_number'  => $this->request->getPost('phone_number'),
+        'image'  => $this->request->getPost('image')
         ];
+
+        $path = FCPATH . '/uploads';
+
+        $image = $this->request->getFile('image');
+        $image->move($path);
+        $data['image'] = '/uploads/' . $_FILES['image']['name'];
+
+
 		
     	$model->modifyProfilo($data);
         // $model->save($data);
@@ -107,10 +124,12 @@ class profili extends BaseController {
         echo view('profili/success', $data, );
         echo view('templates/footer', $data);
         
-      } else {
-        echo view('templates/header', ['title' => 'Create a Profilo']);
-        echo view('profili/modifica');
-        echo view('templates/footer');
+      } else{
+        
+        
+        echo view('templates/header', $data,);
+        echo view('profili/modifica', $data);
+        echo view('templates/footer', $data);
       }
     }
 

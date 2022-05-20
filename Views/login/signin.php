@@ -52,7 +52,7 @@
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit" style="margin-bottom: 20px !important;">Login</button>
-    <p style="justify-content: center !important;"> Non hai ancora un account? <a href="/index.php/pages/view/signup"> Registrati</a></p>
+    <p style="justify-content: center !important;"> Non hai ancora un account? <a href="/index.php/utenti/create"> Registrati</a></p>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   </form>
 </main>

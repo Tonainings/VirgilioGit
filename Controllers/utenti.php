@@ -54,7 +54,9 @@ class utenti extends BaseController {
 		
     	$model->setUtente($data);
         // $model->save($data);
-        echo view('utente/success');
+        echo view('templates/header', $data);
+        echo view('login/signin', $data);
+        echo view('templates/footer', $data);
       } else {
         echo view('templates/header', ['title' => 'Registrazione']);
         echo view('utente/registrazione');

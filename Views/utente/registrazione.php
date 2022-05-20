@@ -66,7 +66,7 @@
 </div>
     
     <button class="w-100 btn btn-lg btn-primary" type="submit" style="margin-bottom: 20px !important;">Sign-up</button>
-    <p style="justify-content: center !important"> Hai già un account? <a href="/index.php/pages/view/signin"> Accedi</a></p>
+    <p style="justify-content: center !important"> Hai già un account? <a href="/index.php/login/getcredential"> Accedi</a></p>
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
   </form>
 </main>
