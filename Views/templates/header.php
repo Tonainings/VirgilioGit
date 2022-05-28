@@ -23,7 +23,14 @@
       
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a class="navbar-brand mb-0 h1 text-white" style="margin-right: 1rem !important; font-size: 1.5rem !important; line-height: inherit;" onclick="location.href='/index.php/pages/view'">Virgilio</a></li>
-          <li><a href="#Home" class="nav-link px-2 text-white">Home</a></li>
+        <?php 
+          if ($_SESSION['logged_in']) {
+           
+           echo "<li><a onclick=\"location.href='/index.php/pages/view/myvirgilio'\" class=\"nav-link px-2 text-white\">Home</a></li>";
+          } else {
+            echo "<li><a onclick=\"location.href='/index.php/pages/view'\" class=\"nav-link px-2 text-white\">Home</a></li>";
+          }
+          ?> 
           <li><a href="#Tours" class="nav-link px-2 text-secondary">Tours</a></li>
           <li><a href="#About" class="nav-link px-2 text-secondary">About</a></li>
         </ul>
