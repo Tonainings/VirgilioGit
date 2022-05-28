@@ -37,9 +37,6 @@
 
 <main class="form-signin container text-center" style="display: flex !important; justify-content: center !important;">
 <form action="/profili/modify" method="post" enctype="multipart/form-data">
-
-
-
                                 <?php
                                 if ($_SESSION['logged_in']) {
                                 echo "<div class=\"text-center\">";
@@ -48,12 +45,6 @@
                                 }
                                 ?>  
 
-
-
-
-
-
-<!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mb-3 fw-normal">Modifica Profilo</h1>
 
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
@@ -64,7 +55,6 @@
               
       <label for="userid">UserID</label>
     </div>
-    
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
     <?php
           if ($_SESSION['logged_in']) {
@@ -73,12 +63,6 @@
               
       <label for="userid">Documento</label>
     </div>
-
-   <!-- <select name="identificationid" for="identificationid" class="form-select form-select-sm" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;" aria-label=".form-select-sm example">
-    <option selected>Documento</option>
-    <option name="identificationid" for="identificationid" value="patente">Patente</option>
-    <option name="identificationid" for="identificationid" value="carta_identità">Carta d'identità</option></select>  -->
-
     <div class="form-floating" style="width: 500px !important; border-bottom-style: solid !important; border-bottom-width: 0px !important; margin-bottom: 10px !important;">
     <?php  if ($_SESSION['logged_in']) {  
     echo "<input type=\"text\" readonly class=\"form-control\" name=\"id_num\" value= \"".esc($profilo['id_num'])."\" required>";
