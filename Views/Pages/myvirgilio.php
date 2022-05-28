@@ -67,14 +67,14 @@
 
         
       
-        <?php
+      <?php
               
-                          if ($_SESSION['tipo'] === 'tourist' ) {
-                          echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/profili/tutti_tour/'\" >Cerca un Tour </button>";
-                          } else {
-                          echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/profili/view'\">Crea un Tour</button>";
-                          }
-                          ?>
+              if ($_SESSION['tipo'] === 'tourist' ) {
+              echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/tour/index/'\" >Cerca un Tour </button>";
+              } else {
+              echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/tour/create/'\">Crea un Tour</button>";
+              }
+              ?>
         
        
     </div>

@@ -31,18 +31,5 @@
     <link href="signin.css" rel="stylesheet">
 
   </head>
-<h1> Congratulations! Your data have been inserted </h1> 
+<h1> Congratulations! Your tour have been inserted </h1> 
 
-<form class="d-flex">
-        
- 
-        
-      
-      <?php
-      if ($_SESSION['logged_in']) {
-           // echo "<li><a href='/index.php/profilo/view' class=\"nav-link px-2 text-white\">Ciao, ".esc($_SESSION['userid'])."</a></li>";
-           echo "<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='/index.php/profili/view/".esc($_SESSION['userid'])."'\">Profilo</button>";
-      }
-      ?>
-   
-      </form>

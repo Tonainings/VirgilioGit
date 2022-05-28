@@ -31,7 +31,7 @@
             echo "<li><a onclick=\"location.href='/index.php/pages/view'\" class=\"nav-link px-2 text-white\">Home</a></li>";
           }
           ?> 
-          <li><a href="#Tours" class="nav-link px-2 text-secondary">Tours</a></li>
+          <li><a href="/index.php/tour/index" class="nav-link px-2 text-secondary">Tutti Tour</a></li>
           <li><a href="#About" class="nav-link px-2 text-secondary">About</a></li>
         </ul>
 
